@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     container: {
-        paddingTop: '16px',
         marginRight: '32px',
         paddingBottom: '27px',
     },
@@ -18,37 +17,15 @@ const useStyles = makeStyles({
     },
 });
 
-export default function PaletteItem({ color, type }) {
+export default function PaletteItem({ type, colorCSS, colorStr }) {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-            <div className={classes.color} style={{ background: getColor(color, type) }}></div>
+            <div className={classes.color} style={{ background: colorCSS }}></div>
             <div className={classes.description}>
                 <label>{type}</label>
-                <label>{getColorText(color, type)}</label>
+                <label>{colorStr}</label>
             </div>
         </div>
     );
-}
-
-function getColor(color, type) {
-    switch (type) {
-        case 'RGBA': {
-            return `rgba(${getColorText(color, 'RGBA')})`;
-        }
-        case 'HEX': {
-            return color;
-        }
-    }
-}
-
-function getColorText(color, type) {
-    switch (type) {
-        case 'RGBA': {
-            return `${color.r},${color.g},${color.b},${color.a}`;
-        }
-        case 'HEX': {
-            return color;
-        }
-    }
 }

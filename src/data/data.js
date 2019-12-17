@@ -2,11 +2,36 @@ class themeColor {
     constructor(color, type) {
         this.color = color;
         this.type = type;
+        this.colorStr = themeColor.getColorText(color, type);
+        this.colorCSS = themeColor.getColorCSS(this.colorStr, type);
+    }
+
+    static getColorCSS(color, type) {
+        switch (type) {
+            case 'RGBA': {
+                return `rgba(${color})`;
+            }
+            case 'HEX': {
+                return color;
+            }
+        }
+    }
+
+    static getColorText(color, type) {
+        switch (type) {
+            case 'RGBA': {
+                return `${color.r},${color.g},${color.b}, ${color.a.toFixed(2)}`;
+            }
+            case 'HEX': {
+                return color;
+            }
+        }
     }
 }
 
 class TextSample {
-    constructor(type, fs, ls, lh) {
+    constructor(type, fs, ls, lh, font) {
+        this.fontFamily = font;
         this.type = type;
         this.fontSize = fs;
         this.letterSpacing = ls;
@@ -37,17 +62,17 @@ export const colorsPrimary = [
 ];
 
 export const titleSizes = [
-    new TextSample('Large', '48px', '-0.5px', '56px'),
-    new TextSample('Medium', '34px', '-0.5px', '40px'),
-    new TextSample('Regular', '22px', '-0.5px', '26px'),
-    new TextSample('Small', '17px', '-0.5px', '20px'),
+    new TextSample('Large', '48px', '-0.5px', '56px', '"Inter - Bold"'),
+    new TextSample('Medium', '34px', '-0.5px', '40px', '"Inter - Bold"'),
+    new TextSample('Regular', '22px', '-0.5px', '26px', '"Inter - Bold"'),
+    new TextSample('Small', '17px', '-0.5px', '20px', '"Inter - Bold"'),
 ];
 
 export const bodySizes = [
-    new TextSample('Large', '22px', '-0.1px', '32px'),
-    new TextSample('Medium', '17px', '-0.1px', '24px'),
-    new TextSample('Regular', '15px', '-0.1px', '22px'),
-    new TextSample('Small', '13px', '-0.1px', '20px'),
+    new TextSample('Large', '22px', '-0.1px', '32px', '"Inter - Regular"'),
+    new TextSample('Medium', '17px', '-0.1px', '24px', '"Inter - Regular"'),
+    new TextSample('Regular', '15px', '-0.1px', '22px', '"Inter - Regular"'),
+    new TextSample('Small', '13px', '-0.1px', '20px', '"Inter - Regular"'),
 ];
 
 export const sampleText =

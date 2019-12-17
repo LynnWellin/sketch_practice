@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { colorsPrimary } from '../data/data';
-import theme from '../theme/theme';
+import { theme } from '../theme/theme';
 import clsx from 'clsx';
 
 const useStyles = makeStyles({

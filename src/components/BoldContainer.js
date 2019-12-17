@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         display: 'flex',
     },
     title: {
-        padding: '30px 0 16px 0',
+        fontFamily: '"Inter - Bold"',
+        padding: '24px 0 16px 0',
         fontSize: '68px',
         display: 'block',
     },
@@ -24,14 +25,16 @@ export default function BoldContainer() {
         <div className={classes.container}>
             <label className={classes.title}>Inter UI</label>
             <div className={classes.boldSamples}>
-                <BoldType fontWeight={700} type="Bold" />
-                <BoldType fontWeight={600} type="Semiold" />
-                <BoldType fontWeight={400} type="Regular" />
+                <label style={{ fontFamily: '"Inter - Bold"', paddingRight: '40px' }}>
+                    Bold (700)
+                </label>
+                <label style={{ fontFamily: '"Inter - Semi Bold"', paddingRight: '40px' }}>
+                    Semibold (600)
+                </label>
+                <label style={{ fontFamily: '"Inter - Regular"', paddingRight: '40px' }}>
+                    Regular (400)
+                </label>
             </div>
         </div>
     );
-}
-
-function BoldType({ fontWeight, type }) {
-    return <label style={{ fontWeight, paddingRight: '40px' }}>{`${type} (${fontWeight})`}</label>;
 }

@@ -4,7 +4,7 @@ import ThemeColor from './ThemeColor';
 import SectionTitle from './SectionTitle';
 import TitleSection from './TitleSection';
 import { colorsDark, colorsLight, colorsPrimary, bodySizes, titleSizes } from '../data/data';
-import theme from '../theme/theme';
+import { themeClasses, theme } from '../theme/theme';
 
 const useStyles = makeStyles({
     header: {
@@ -18,15 +18,22 @@ const useStyles = makeStyles({
         fontFamily: 'Inter - Bold',
         margin: '6px 0',
     },
+    body: themeClasses.body,
 });
 
-export default function Hero() {
+export default function ColorScheme() {
     const classes = useStyles();
     return (
-        <div className={classes.header}>
-            <label className={classes.pageLabel}>Styleguide</label>
-            <SectionTitle title="Color Scheme" type="Light" />
-            <ThemeColor colors={colorsLight} type="Light" />
-        </div>
+        <React.Fragment>
+            <div className={classes.header}>
+                <h2 className={classes.pageLabel}>Styleguide</h2>
+                <SectionTitle title="Color Scheme" type="Light" />
+                <ThemeColor colors={colorsLight} type="Light" />
+            </div>
+            <div className={classes.body}>
+                <ThemeColor colors={colorsDark} type="Dark" />
+                <ThemeColor colors={colorsPrimary} type="Primary" />
+            </div>
+        </React.Fragment>
     );
 }

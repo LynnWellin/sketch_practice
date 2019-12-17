@@ -1,17 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import TitleSample from './TitleSample';
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
         alignItems: 'flex-end',
+        justifyContent: 'space-between',
         paddingBottom: '19px',
         '& label': {
             fontSize: '13px',
             color: '#1a1a1a',
-            fontWeight: 600,
             letterSpacing: '-0.1px',
         },
     },

@@ -4,11 +4,12 @@ import clsx from 'clsx';
 
 const useStyles = makeStyles({
     headerTitle: {
+        fontFamily: '"Inter - Bold"',
         display: 'block',
         paddingTop: '20px',
         fontSize: '34px',
-        fontFamily: 'Inter - Bold',
-        margin: '6px 0',
+        margin: 0,
+        marginBottom: '6px',
     },
     dark: {
         boxShadow: 'inset 0 -1px 0 rgba(26, 26, 26, 0.1)',

@@ -1,4 +1,4 @@
-export default {
+export const theme = {
     palette: {
         black: '#1a1a1a',
         white: '#ffffff',
@@ -9,5 +9,12 @@ export default {
     },
     margins: {
         pageMargin: '0 32px',
+    },
+};
+
+export const themeClasses = {
+    body: {
+        padding: theme.margins.pageMargin,
+        background: theme.palette.white,
     },
 };

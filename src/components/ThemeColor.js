@@ -28,7 +28,7 @@ export default function ThemeColor({ colors, type }) {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-            <label>{type}</label>
+            <h2>{type}</h2>
             <div
                 className={clsx(
                     classes.paletteContainer,

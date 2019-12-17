@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { sampleText, sampleTitle, titleSizes, bodySizes } from '../data/data';
-import theme from '../theme/theme';
+import { theme } from '../theme/theme';
 import clsx from 'clsx';
 
 const useStyles = makeStyles({
@@ -10,9 +10,10 @@ const useStyles = makeStyles({
         paddingBottom: '44px',
     },
     sampleContainer: {
-        // paddingRight: '32px',
+        paddingRight: '32px',
+        color: '#1a1a1a',
         '& label': {
-            color: '#1a1a1a',
+            color: theme.palette.gray,
         },
     },
     date: {
@@ -21,12 +22,12 @@ const useStyles = makeStyles({
 });
 
 const largeSample = [
-    { titleSize: titleSizes[0], bodySize: bodySizes[0] },
-    { titleSize: titleSizes[1], bodySize: bodySizes[1] },
+    { titleSize: titleSizes[0], bodySize: bodySizes[0], dateSize: bodySizes[1] },
+    { titleSize: titleSizes[1], bodySize: bodySizes[1], dateSize: bodySizes[1] },
 ];
 const smallSample = [
-    { titleSize: titleSizes[2], bodySize: bodySizes[2] },
-    { titleSize: titleSizes[3], bodySize: bodySizes[3] },
+    { titleSize: titleSizes[2], bodySize: bodySizes[2], dateSize: bodySizes[2] },
+    { titleSize: titleSizes[3], bodySize: bodySizes[3], dateSize: bodySizes[3] },
 ];
 
 console.log(largeSample);
@@ -48,13 +49,15 @@ export default function TextCombo() {
     );
 }
 
-function SampleText({ bodySize, titleSize }) {
+function SampleText({ bodySize, titleSize, dateSize }) {
     const classes = useStyles();
     return (
         <div className={classes.sampleContainer}>
-            <label style={{ ...titleSize }}>{sampleTitle}</label>
-            <label style={{ ...bodySize, fontWeight: '400' }}>{sampleText}</label>
-            <label className={classes.date}>August 14, 2018</label>
+            <h3 style={{ ...titleSize }}>{sampleTitle}</h3>
+            <p style={{ ...bodySize, fontWeight: '400' }}>{sampleText}</p>
+            <label className={classes.date} style={{ ...dateSize }}>
+                August 14, 2018
+            </label>
         </div>
     );
 }
